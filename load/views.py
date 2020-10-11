@@ -14,18 +14,6 @@ def index(request):
     context = {'info': saved_info}
     return render(request, 'load/index.html', context)
 
-# def topics(request):
-#     '''Wszystkie tematy'''
-#     topics = Topic.objects.order_by('date_added')
-#     context = {'topics': topics}
-#     return render(request, 'learning_logs/topics.html', context)
-#
-# def topic(request, topic_id):
-#     topic = Topic.objects.get(id=topic_id)
-#     entries = topic.entry_set.order_by('-date_added')
-#     context = {'topic': topic, 'entries': entries}
-#     return render(request, 'learning_logs/topic.html', context)
-
 class ApiResources():
     api_url = settings.POKE_API
     delimiter = ';'
@@ -76,8 +64,6 @@ class ApiResources():
         return units_ulrs
 
     def _get_resources(self, last_page_url: str, last_id: int) -> List:
-        # last_page_url = self._receive_last_page(self._all_urls())
-        # last_id: int = self._receive_last_id(last_page_url)
         urls_scope = self._define_urls_scope(last_page_url, last_id)
         units = []
         for url in urls_scope:

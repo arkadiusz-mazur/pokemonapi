@@ -1,0 +1,14 @@
+{% extends "load/base.html" %}
+
+{% block content %}
+<p><strong>App SHOW</strong> - the list of data in CSV</p>
+    <strong>You can access received data in:</strong><br />
+    {{file_path}}
+    <ul>
+    {% for file in files %}
+        <li>
+                {{ file }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock content %}
